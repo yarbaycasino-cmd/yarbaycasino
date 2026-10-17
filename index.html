@@ -1,635 +1,220 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="tr">
-
 <head>
-
-<meta charset="UTF-8">
-
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<meta name="theme-color" content="#08142e">
 <title>YARBAY CASINO | Bonus Merkezi</title>
-
+<meta name="description" content="YARBAY CASINO bonus ve kampanya merkezi. Kampanya koşullarını ilgili sağlayıcının resmi sayfasından kontrol edin.">
 <style>
-
-:root {
-
-  --navy:#071326; --panel:#102443; --gold:#f4c85b;
-
-  --blue:#1976ff; --red:#e63848; --white:#f8faff;
-
-  --muted:#b8c5da; --line:#294469;
-
-}
-
-*{box-sizing:border-box}
-
-body{margin:0;background:var(--navy);color:var(--white);
-
-font-family:Arial,sans-serif}
-
-button,input,textarea,select{font:inherit}
-
-button,a{cursor:pointer}
-
-a{color:inherit;text-decoration:none}
-
-header{background:#09172c;border-bottom:1px solid var(--line);
-
-padding:16px 5%;display:flex;align-items:center;
-
-justify-content:space-between;gap:12px;flex-wrap:wrap}
-
-.logo{font-size:23px;font-weight:900}
-
-.logo span{color:var(--gold)}
-
-nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
-
-nav a{font-size:14px;color:#dce6f6}
-
-.btn{border:0;border-radius:9px;padding:12px 16px;
-
-background:linear-gradient(110deg,var(--blue),#6449db);
-
-color:white;font-weight:bold;display:inline-block}
-
-.btn.gold{background:linear-gradient(110deg,#ffe69a,#d49b26);
-
-color:#17213a}
-
-.btn.red{background:var(--red)}
-
-.wrap{width:min(1120px,92%);margin:auto}
-
-.hero{margin:28px auto 35px;padding:48px 25px;text-align:center;
-
-border:1px solid #725e36;border-radius:20px;
-
-background:radial-gradient(ellipse at top,#244a7d,#10213c 52%,#10172b);
-
-position:relative;overflow:hidden}
-
-.kicker{color:var(--gold);font-weight:bold;letter-spacing:3px}
-
-h1{font-size:clamp(34px,6vw,59px);margin:15px 0}
-
-.hero h1 span{color:var(--gold)}
-
-.hero p{color:#d1dcee;line-height:1.8}
-
-.pills{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;
-
-margin:22px 0}
-
-.pill{border:1px solid #526b8d;padding:8px 12px;
-
-border-radius:25px;font-size:12px;background:#122642}
-
-.sectionhead{display:flex;align-items:center;justify-content:space-between;
-
-gap:12px;flex-wrap:wrap;margin:28px 0 17px}
-
-.sectionhead h2{margin:0}
-
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-
-.card{background:linear-gradient(145deg,#142c4e,#0d1b31);
-
-border:1px solid var(--line);border-radius:15px;overflow:hidden}
-
-.cardtop{height:8px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--red))}
-
-.cardbody{padding:21px}
-
-.tag{display:inline-block;border-radius:5px;padding:6px 9px;
-
-background:#213b60;color:var(--gold);font-size:11px;font-weight:bold}
-
-.card h3{font-size:21px;margin:15px 0 9px}
-
-.card p{color:var(--muted);line-height:1.65;min-height:44px}
-
-.card .btn{width:100%;text-align:center;margin-top:9px}
-
-.empty{color:var(--muted);padding:30px;border:1px dashed var(--line);
-
-border-radius:12px;text-align:center}
-
-.notice{margin:35px 0;padding:25px;border:1px solid var(--line);
-
-border-radius:15px;background:#10213a}
-
-.notice p{color:var(--muted);line-height:1.7}
-
-footer{border-top:1px solid var(--line);padding:27px 5%;
-
-text-align:center;color:var(--muted);font-size:12px;line-height:1.8}
-
-.overlay{position:fixed;inset:0;background:#020713dd;z-index:10;
-
-display:none;align-items:flex-start;justify-content:center;
-
-overflow:auto;padding:20px}
-
-.overlay.show{display:flex}
-
-.admin{background:#0e1d34;border:1px solid #496387;border-radius:16px;
-
-width:min(760px,100%);padding:23px;margin:auto}
-
-.adminhead{display:flex;justify-content:space-between;gap:10px;
-
-align-items:center;flex-wrap:wrap}
-
-.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-
-.field{display:flex;flex-direction:column;gap:7px}
-
-.field.full{grid-column:1/-1}
-
-.field label{font-size:13px;color:#d4def0}
-
-.field input,.field textarea,.field select{width:100%;padding:12px;
-
-background:#081529;color:white;border:1px solid #405779;border-radius:8px}
-
-.field textarea{min-height:80px;resize:vertical}
-
-.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
-
-.adminlist{margin-top:22px;border-top:1px solid var(--line);padding-top:12px}
-
-.adminitem{display:flex;justify-content:space-between;align-items:center;
-
-gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:12px 0}
-
-.small{font-size:12px;color:var(--muted);line-height:1.6}
-
-@media(max-width:760px){.cards{grid-template-columns:1fr}
-
-.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}
-
-.hero{padding:35px 17px}nav{gap:10px}}
-
+:root{--navy:#071329;--navy2:#10254b;--blue:#1769ff;--gold:#f5c451;--gold2:#ffe9a3;--red:#e63946;--white:#f7f9ff;--muted:#aebbd4;--panel:#101f3b;--line:rgba(255,255,255,.12);--green:#36d399}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#17366a 0,transparent 36%),linear-gradient(160deg,#050b18,#0a1833 60%,#101d38);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+a{color:inherit}.wrap{width:min(1180px,92%);margin:auto}.topline{background:#061022;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted);padding:9px 0}.topline .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.brandbar{padding:20px 0;border-bottom:1px solid var(--line);background:rgba(5,13,29,.8);backdrop-filter:blur(12px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none}.brandmark{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,var(--gold),#fff0b6 48%,#d79a18);color:#101b35;font-weight:1000;font-size:22px;box-shadow:0 0 25px #f5c45133}.brandname{font-weight:950;letter-spacing:1.5px;font-size:20px}.brandname span{color:var(--gold)}.brandtag{color:var(--muted);font-size:11px;letter-spacing:2px;margin-top:3px}.navlinks{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.navlinks a,.btn{border:1px solid var(--line);padding:11px 15px;border-radius:11px;text-decoration:none;font-size:13px;font-weight:750;background:#ffffff08;color:var(--white);cursor:pointer}.navlinks a:hover,.btn:hover{border-color:var(--gold);transform:translateY(-1px)}.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111b32;border:0}.btn.blue{background:linear-gradient(135deg,#1769ff,#4292ff);border:0}.hero{padding:54px 0 35px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;align-items:stretch}.eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid #f5c45155;background:#f5c45112;color:var(--gold2);padding:8px 12px;border-radius:99px;font-size:11px;font-weight:900;letter-spacing:1.3px}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}h1{font-size:clamp(36px,5.4vw,68px);line-height:.99;letter-spacing:-2px;margin:22px 0 18px;font-weight:1000}h1 em{font-style:normal;color:var(--gold);text-shadow:0 0 32px #f5c45122}.hero p{max-width:650px;color:#c4cee1;line-height:1.75;font-size:15px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.hero-art{border:1px solid #f5c45145;border-radius:24px;background:linear-gradient(145deg,#142d58,#09142a 70%);padding:24px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;min-height:290px;box-shadow:0 18px 55px #0004}.hero-art:before{content:"";position:absolute;width:260px;height:260px;border:1px solid #f5c45133;border-radius:50%;right:-60px;top:-70px;box-shadow:0 0 0 25px #f5c45108,0 0 0 55px #f5c45105}.hero-art:after{content:"";position:absolute;inset:auto -20% -55% -20%;height:200px;background:#1769ff33;filter:blur(50px)}.art-top,.art-bottom{position:relative;z-index:1}.art-label{font-size:11px;letter-spacing:2px;color:var(--muted);font-weight:900}.art-title{font-size:30px;line-height:1.1;font-weight:1000;margin:16px 0;color:var(--gold2)}.art-chip{display:inline-block;border-radius:8px;background:var(--red);padding:7px 10px;font-size:11px;font-weight:900;letter-spacing:1px}.art-bottom{display:flex;align-items:end;justify-content:space-between;gap:12px}.art-symbol{font-size:62px;line-height:1;color:var(--gold);filter:drop-shadow(0 0 16px #f5c45133)}.section{padding:26px 0 52px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:20px;flex-wrap:wrap}.section-head h2{font-size:clamp(24px,3vw,34px);margin:0;letter-spacing:-.8px}.section-head p{color:var(--muted);font-size:13px;margin:8px 0 0}.filters{display:flex;gap:8px;flex-wrap:wrap}.filter{background:#ffffff08;border:1px solid var(--line);color:#d8e1f2;border-radius:99px;padding:9px 13px;cursor:pointer;font-size:12px;font-weight:800}.filter.active{background:var(--gold);border-color:var(--gold);color:#101b32}.notice{display:none;border:1px solid #f5c45155;background:#f5c45112;padding:13px 16px;border-radius:12px;margin-bottom:18px;color:var(--gold2);font-size:13px}.notice.show{display:block}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.campaign{border:1px solid var(--line);background:linear-gradient(160deg,#13264a,#0b1730);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-height:240px;transition:.2s;box-shadow:0 12px 28px #0002}.campaign:hover{transform:translateY(-4px);border-color:#f5c45166}.campaign-band{padding:15px 17px;background:linear-gradient(100deg,#173f86,#102957 70%,#651c2b);display:flex;align-items:center;justify-content:space-between;gap:8px}.category{font-size:10px;font-weight:950;letter-spacing:1.3px;text-transform:uppercase;color:#fff}.status{font-size:10px;font-weight:900;color:#d8ffe9;background:#16865a33;border:1px solid #36d39955;padding:5px 8px;border-radius:99px}.campaign-body{padding:18px;display:flex;flex-direction:column;flex:1}.campaign h3{margin:0 0 10px;font-size:20px;line-height:1.2}.campaign p{margin:0;color:#b8c5dc;font-size:13px;line-height:1.65;white-space:pre-wrap}.campaign-actions{display:flex;gap:9px;align-items:center;margin-top:auto;padding-top:20px}.campaign-actions a{display:block;text-align:center;text-decoration:none;flex:1;border-radius:10px;padding:11px 10px;font-size:12px;font-weight:900}.visit{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#111b32}.empty{grid-column:1/-1;text-align:center;border:1px dashed var(--line);border-radius:16px;padding:40px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}.stat{padding:17px;border:1px solid var(--line);border-radius:15px;background:#ffffff06}.stat strong{display:block;font-size:19px;color:var(--gold2)}.stat span{font-size:11px;color:var(--muted)}.noticebar{margin:0 0 32px;border:1px solid #1769ff55;border-radius:15px;padding:17px 18px;background:linear-gradient(100deg,#1769ff1c,#f5c4510a);display:flex;gap:12px;align-items:start}.noticebar b{color:var(--gold2);display:block;margin-bottom:4px}.noticebar p{margin:0;color:#c4cee1;font-size:13px;line-height:1.6}.footer{border-top:1px solid var(--line);background:#040a16;padding:28px 0 34px;color:var(--muted);font-size:12px;line-height:1.7}.footer-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.footer strong{color:#fff}.admin-section{display:none;padding:25px 0 55px}.admin-section.show{display:block}.admin-panel{border:1px solid #f5c45155;background:#0b1730;border-radius:18px;padding:20px}.admin-panel h2{margin:0 0 6px}.admin-panel .sub{color:var(--muted);font-size:13px;margin:0 0 20px}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.formbox{border:1px solid var(--line);border-radius:14px;padding:16px}.formbox h3{margin:0 0 14px;font-size:16px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}.field label{font-size:12px;color:#c6d1e5;font-weight:800}.field input,.field textarea,.field select{width:100%;border:1px solid #344563;background:#071329;color:#fff;padding:11px 12px;border-radius:9px;font:inherit;font-size:13px}.field textarea{min-height:80px;resize:vertical}.form-actions{display:flex;gap:8px;flex-wrap:wrap}.admin-list{display:flex;flex-direction:column;gap:9px;margin-top:14px}.admin-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:10px;padding:11px 12px;font-size:13px}.admin-row small{display:block;color:var(--muted);margin-top:3px}.danger{background:#e6394622;border:1px solid #e6394666;color:#ffb8bd;border-radius:8px;padding:8px 10px;cursor:pointer;font-weight:800}.admin-status{font-size:12px;color:var(--muted);margin-top:10px;min-height:18px}.loginbox{max-width:460px;margin:20px auto;border:1px solid var(--line);border-radius:14px;padding:18px}.hidden{display:none!important}.disclaimer{font-size:11px;color:#8998b5;margin-top:14px;line-height:1.6}.admin-toggle{font-size:11px;color:#8290a9;text-decoration:none}.admin-toggle:hover{color:var(--gold2)}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero-art{min-height:240px}.grid{grid-template-columns:repeat(2,1fr)}.admin-grid{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}.navlinks{width:100%}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding-top:36px}.stats{grid-template-columns:1fr}.brandname{font-size:17px}.navlinks a,.btn{padding:10px 12px}.art-title{font-size:26px}.section{padding-bottom:36px}}
 </style>
-
 </head>
-
 <body>
-
-<header>
-
-  <a class="logo" href="#">YARBAY <span>CASINO</span></a>
-
-  <nav>
-
-    <a href="#anasayfa">Ana Sayfa</a>
-
-    <a href="#bonuslar">Bonuslar</a>
-
-    <a href="#duyurular">Duyurular</a>
-
-    <button class="btn gold" id="openAdmin">Yönetim Paneli</button>
-
-  </nav>
-
-</header>
-
-<main class="wrap" id="anasayfa">
-
-  <section class="hero">
-
-    <div class="kicker">★ YARBAY CASINO ★</div>
-
-    <h1>Bonus <span>Merkezi</span></h1>
-
-    <p>Kampanyaları keşfet, duyuruları takip et.<br>
-
-    Güncel teklifler ve katılım koşulları için sponsor bilgilerini incele.</p>
-
-    <div class="pills">
-
-      <span class="pill">✦ Öne Çıkanlar</span>
-
-      <span class="pill">◆ Sponsorlar</span>
-
-      <span class="pill">★ Duyurular</span>
-
-    </div>
-
-    <a class="btn gold" href="#bonuslar">Kampanyaları İncele ↓</a>
-
-  </section>
-
-  <section id="bonuslar">
-
-    <div class="sectionhead">
-
-      <h2>✦ Bonus ve Kampanyalar</h2>
-
-      <span class="tag" id="count">0 KAMPANYA</span>
-
-    </div>
-
-    <div class="cards" id="cards"></div>
-
-  </section>
-
-  <section class="notice" id="duyurular">
-
-    <h2 style="color:var(--gold)">Yarbay Casino Duyuruları</h2>
-
-    <p id="announcement">Yeni duyurular burada yayınlanacaktır.</p>
-
-    <a class="btn red" id="telegram" href="https://t.me/" target="_blank"
-
-       rel="noopener">Telegram Kanalı</a>
-
-  </section>
-
+<div class="topline"><div class="wrap"><span>✦ YARBAY CASINO BONUS MERKEZİ</span><span>18+ · Koşulları kontrol edin · Sorumlu oyun</span></div></div>
+<header class="brandbar"><div class="wrap nav">
+<a class="brand" href="#" aria-label="Yarbay Casino ana sayfa"><div class="brandmark">Y</div><div><div class="brandname">YARBAY <span>CASINO</span></div><div class="brandtag">BONUS • KAMPANYA • DUYURU</div></div></a>
+<nav class="navlinks"><a href="#kampanyalar">Kampanyalar</a><a href="#duyuru">Duyurular</a><button class="btn gold" id="showAdminBtn">Yönetici Girişi</button></nav>
+</div></header>
+<main>
+<section class="hero"><div class="wrap hero-grid">
+<div><div class="eyebrow"><span class="dot"></span> YENİ KAMPANYA MERKEZİ</div><h1>FIRSATLARINI<br><em>KEŞFET.</em></h1><p>Yarbay Casino kampanya ve duyurularını tek yerde takip et. Her kampanyanın güncel koşullarını ve uygunluk şartlarını ilgili sağlayıcının resmi sayfasından kontrol et.</p><div class="hero-actions"><a class="btn gold" href="#kampanyalar">Kampanyaları Gör ↓</a><a class="btn" href="#duyuru">Duyurular</a></div>
+<div class="stats"><div class="stat"><strong id="campaignCount">—</strong><span>Yayınlanan kampanya</span></div><div class="stat"><strong>7/24</strong><span>Bilgi merkezi</span></div><div class="stat"><strong>18+</strong><span>Yetişkinlere yöneliktir</span></div></div></div>
+<div class="hero-art"><div class="art-top"><div class="art-label">YARBAY EXCLUSIVE</div><div class="art-title">ALTIN<br>FIRSATLAR</div><span class="art-chip">GÜNCEL KAMPANYALAR</span></div><div class="art-bottom"><div><div class="art-label">RESMİ BAĞLANTILAR</div><div style="font-size:13px;margin-top:6px;color:#dce5f5">Detayları sağlayıcıda kontrol et</div></div><div class="art-symbol">✦</div></div></div>
+</div></section>
+<section class="section" id="duyuru"><div class="wrap"><div class="noticebar"><div style="font-size:24px">📣</div><div><b>Güncel duyuru</b><p id="announcementText">Duyurular yükleniyor…</p></div></div></div></section>
+<section class="section" id="kampanyalar"><div class="wrap">
+<div class="section-head"><div><h2>Kampanyalar & Bonuslar</h2><p>Güncel liste · Detayları kampanya sağlayıcısından doğrulayın.</p></div><div class="filters" id="filters"><button class="filter active" data-filter="Tümü">Tümü</button><button class="filter" data-filter="Deneme Bonusu">Deneme Bonusu</button><button class="filter" data-filter="Yatırım Bonusu">Yatırım Bonusu</button><button class="filter" data-filter="Sponsor">Sponsor</button></div></div>
+<div class="notice" id="loadNotice"></div><div class="grid" id="campaignGrid"><div class="empty">Kampanyalar yükleniyor…</div></div>
+<p class="disclaimer">Kampanya adları, açıklamaları ve bağlantıları yalnızca bilgilendirme amaçlıdır. Koşullar değişebilir; uygunluk, çevrim şartları, süreler ve çekim koşullarını ilgili sağlayıcıdan kontrol edin. Yalnızca yasal yaşta olan kişiler içindir. Bütçenizi aşmayın; kayıpların peşinden gitmeyin.</p>
+</div></section>
+<section class="admin-section" id="adminSection"><div class="wrap"><div class="admin-panel"><h2>Yönetim Paneli</h2><p class="sub">Kampanya ve duyuruları yönetin. Bu panel Supabase Auth ve veritabanı izinleriyle çalışır.</p>
+<div id="loginBox" class="loginbox"><h3>Yönetici girişi</h3><form id="loginForm"><div class="field"><label for="adminEmail">E-posta</label><input id="adminEmail" type="email" autocomplete="username" required></div><div class="field"><label for="adminPassword">Parola</label><input id="adminPassword" type="password" autocomplete="current-password" required></div><button class="btn gold" type="submit">Giriş yap</button></form><div class="admin-status" id="loginStatus"></div><p class="disclaimer">Hesap, Supabase Dashboard → Authentication bölümünde önceden oluşturulmuş olmalıdır.</p></div>
+<div id="adminWorkspace" class="hidden"><div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px"><div>Giriş yapıldı: <strong id="adminUserLabel"></strong></div><button class="btn" id="logoutBtn">Çıkış yap</button></div>
+<div class="admin-grid">
+<div class="formbox"><h3>Kampanya ekle / düzenle</h3><form id="campaignForm"><input id="campaignId" type="hidden"><div class="field"><label for="campaignTitle">Başlık</label><input id="campaignTitle" maxlength="100" required></div><div class="field"><label for="campaignCategory">Kategori</label><select id="campaignCategory"><option>Deneme Bonusu</option><option>Yatırım Bonusu</option><option>Sponsor</option><option>Duyuru</option></select></div><div class="field"><label for="campaignDescription">Açıklama</label><textarea id="campaignDescription" maxlength="1000" required></textarea></div><div class="field"><label for="campaignUrl">Hedef bağlantısı (https://)</label><input id="campaignUrl" type="url" placeholder="https://..." required></div><div class="form-actions"><button class="btn gold" type="submit" id="campaignSubmit">Kampanyayı kaydet</button><button class="btn" type="button" id="cancelEditBtn">Temizle</button></div></form><div class="admin-status" id="campaignStatus"></div><div class="admin-list" id="adminCampaignList"></div></div>
+<div class="formbox"><h3>Duyuru yönetimi</h3><form id="announcementForm"><div class="field"><label for="announcementInput">Duyuru metni</label><textarea id="announcementInput" maxlength="700" required></textarea></div><button class="btn blue" type="submit">Duyuruyu yayınla</button></form><div class="admin-status" id="announcementStatus"></div><div class="admin-list" id="adminAnnouncementList"></div></div>
+</div></div>
+</div></div></section>
 </main>
-
-<footer>
-
-  © 2026 YARBAY CASINO · Tüm hakları saklıdır.<br>
-
-  18+ · Sorumlu davranın. Kampanya koşullarını kontrol edin.
-
-</footer>
-
-<div class="overlay" id="overlay">
-
-  <section class="admin">
-
-    <div class="adminhead">
-
-      <div>
-
-        <div class="kicker">YARBAY CASINO</div>
-
-        <h2 style="margin:8px 0">Yönetim Paneli</h2>
-
-      </div>
-
-      <button class="btn red" id="closeAdmin">Kapat ✕</button>
-
-    </div>
-
-    <p class="small">Demo yönetim paneli: kayıtlar bu tarayıcıda saklanır.
-
-    Henüz güvenli, sunucu bağlantılı canlı yönetim sistemi değildir.</p>
-
-    <form id="bonusForm">
-
-      <input type="hidden" id="editId">
-
-      <div class="formgrid">
-
-        <div class="field">
-
-          <label for="title">Kampanya başlığı</label>
-
-          <input id="title" maxlength="80" required placeholder="Sponsor kampanyası">
-
-        </div>
-
-        <div class="field">
-
-          <label for="category">Kategori</label>
-
-          <select id="category">
-
-            <option>Sponsor</option><option>Yeni Üye</option>
-
-            <option>Etkinlik</option><option>Duyuru</option>
-
-          </select>
-
-        </div>
-
-        <div class="field full">
-
-          <label for="description">Açıklama</label>
-
-          <textarea id="description" maxlength="300" required
-
-          placeholder="Kampanya ve koşulları hakkında bilgi"></textarea>
-
-        </div>
-
-        <div class="field full">
-
-          <label for="url">Hedef bağlantısı (https://)</label>
-
-          <input id="url" type="url" placeholder="https://example.com">
-
-        </div>
-
-      </div>
-
-      <div class="actions">
-
-        <button class="btn gold" type="submit" id="saveBtn">Kampanya Ekle</button>
-
-        <button class="btn" type="button" id="cancelEdit">Formu Temizle</button>
-
-      </div>
-
-    </form>
-
-    <div class="adminlist">
-
-      <h3>Mevcut kampanyalar</h3>
-
-      <div id="adminList"></div>
-
-      <div class="actions">
-
-        <button class="btn" id="editAnnouncement">Duyuruyu Düzenle</button>
-
-        <button class="btn red" id="resetData">Demo Verilerini Sıfırla</button>
-
-      </div>
-
-      <p class="small">Bu sürümde panel güvenlik doğrulaması yoktur.
-
-      Gerçek kullanıma açmadan önce yönetici girişi ve sunucu yetkilendirmesi eklenmelidir.</p>
-
-    </div>
-
-  </section>
-
-</div>
-
+<footer class="footer"><div class="wrap footer-grid"><div><strong>YARBAY CASINO</strong><br>Bonus ve kampanya bilgilendirme merkezi.</div><div>18+ · Sorumlu oyun · Kampanya koşullarını doğrulayın.<br><a class="admin-toggle" href="#adminSection" id="footerAdminLink">Yönetici alanı</a></div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+/*
+  SETUP:
+  1) SUPABASE_URL alanına Supabase Data API sayfasındaki API URL'yi koy.
+  2) SUPABASE_PUBLISHABLE_KEY alanına sb_publishable_... anahtarını koy.
+  Never place a service_role or secret key in this file.
+*/
+const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
+const SUPABASE_PUBLISHABLE_KEY = "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+const configured = SUPABASE_URL.startsWith("https://") &&
+  !SUPABASE_URL.includes("PASTE_") &&
+  SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_") &&
+  !SUPABASE_PUBLISHABLE_KEY.includes("PASTE_");
+const supabaseClient = configured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY) : null;
+const $ = (id) => document.getElementById(id);
+let campaigns = [];
+let announcements = [];
+let currentFilter = "Tümü";
 
-const KEY = "yarbaycasino_campaigns_v1";
-
-const ANN = "yarbaycasino_announcement_v1";
-
-const TG = "yarbaycasino_telegram_v1";
-
-const initial = [
-
- {id:"demo1",title:"Sponsor Kampanyası",category:"Sponsor",
-
- description:"Kampanya detayları ve geçerli koşullar için sponsor sayfasını inceleyin.",
-
- url:"https://example.com"},
-
- {id:"demo2",title:"Yeni Üye Fırsatları",category:"Yeni Üye",
-
- description:"Katılım koşullarını ve güncel kampanya bilgilerini kontrol edin.",
-
- url:"https://example.com"},
-
- {id:"demo3",title:"Güncel Duyurular",category:"Duyuru",
-
- description:"Etkinlikler ve bilgilendirmeler için duyuru kanalını takip edin.",
-
- url:"https://t.me/"}
-
-];
-
-const $ = id => document.getElementById(id);
-
-let items = loadItems();
-
-function loadItems(){
-
- try {
-
-  const value = JSON.parse(localStorage.getItem(KEY));
-
-  return Array.isArray(value) ? value : initial.slice();
-
- } catch { return initial.slice(); }
-
+function safeUrl(value) {
+  try { const u = new URL(value); return u.protocol === "https:" ? u.href : "#"; }
+  catch { return "#"; }
 }
-
-function saveItems(){
-
- localStorage.setItem(KEY,JSON.stringify(items));
-
+function escapeHtml(value="") {
+  return String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 }
-
-function safeUrl(value){
-
- try {
-
-  const u = new URL(value);
-
-  return u.protocol === "https:" ? u.href : "";
-
- } catch { return ""; }
-
+function showLoadNotice(text) {
+  $("loadNotice").textContent = text;
+  $("loadNotice").classList.add("show");
 }
-
-function element(tag,cls,text){
-
- const e=document.createElement(tag);
-
- if(cls)e.className=cls;
-
- if(text!==undefined)e.textContent=text;
-
- return e;
-
+function renderCampaigns() {
+  const list = currentFilter === "Tümü" ? campaigns : campaigns.filter(c => c.category === currentFilter);
+  $("campaignCount").textContent = campaigns.length;
+  $("campaignGrid").innerHTML = list.length ? list.map(c => `
+    <article class="campaign">
+      <div class="campaign-band"><span class="category">${escapeHtml(c.category || "Sponsor")}</span><span class="status">● AKTİF</span></div>
+      <div class="campaign-body"><h3>${escapeHtml(c.title)}</h3><p>${escapeHtml(c.description || "")}</p>
+      <div class="campaign-actions"><a class="visit" href="${escapeHtml(safeUrl(c.target_url))}" target="_blank" rel="noopener noreferrer">KAMPANYA DETAYI ↗</a></div></div>
+    </article>`).join("") : `<div class="empty">Bu kategoride yayınlanmış kampanya yok. Daha sonra tekrar kontrol edin.</div>`;
 }
-
-function render(){
-
- const cards=$("cards");
-
- cards.replaceChildren();
-
- $("count").textContent=items.length+" KAMPANYA";
-
- if(!items.length){
-
-  cards.append(element("div","empty","Henüz kampanya eklenmedi."));
-
-  return;
-
- }
-
- items.forEach(item=>{
-
-  const card=element("article","card");
-
-  card.append(element("div","cardtop"));
-
-  const body=element("div","cardbody");
-
-  body.append(element("span","tag",item.category));
-
-  body.append(element("h3","",item.title));
-
-  body.append(element("p","",item.description));
-
-  const url=safeUrl(item.url||"");
-
-  if(url){
-
-   const link=element("a","btn gold","Detayları Gör");
-
-   link.href=url;link.target="_blank";link.rel="noopener";
-
-   body.append(link);
-
-  }else{
-
-   body.append(element("p","small","Bağlantı henüz eklenmedi."));
-
+function renderAnnouncements() {
+  const active = announcements.filter(a => a.active);
+  $("announcementText").textContent = active.length ? active[0].message : "Şu anda yayınlanmış duyuru bulunmuyor.";
+}
+async function loadPublicData() {
+  if (!supabaseClient) {
+    campaigns = [];
+    announcements = [];
+    renderCampaigns(); renderAnnouncements();
+    showLoadNotice("Supabase bağlantısı henüz ayarlanmadı. index.html içindeki SUPABASE_URL ve SUPABASE_PUBLISHABLE_KEY alanlarını doldurun.");
+    return;
   }
-
-  card.append(body);cards.append(card);
-
- });
-
- renderAdmin();
-
+  const [cRes, aRes] = await Promise.all([
+    supabaseClient.from("campaigns").select("*").eq("active", true).order("created_at", {ascending:false}),
+    supabaseClient.from("site_announcements").select("*").eq("active", true).order("updated_at", {ascending:false})
+  ]);
+  if (cRes.error || aRes.error) {
+    showLoadNotice("Veriler alınamadı. Supabase URL/anahtarını, Data API ayarını ve RLS politikalarını kontrol edin.");
+    console.error(cRes.error || aRes.error);
+  } else {
+    $("loadNotice").classList.remove("show");
+  }
+  campaigns = cRes.data || [];
+  announcements = aRes.data || [];
+  renderCampaigns(); renderAnnouncements();
 }
-
-function renderAdmin(){
-
- const list=$("adminList");list.replaceChildren();
-
- if(!items.length){list.append(element("p","small","Kampanya yok."));return;}
-
- items.forEach(item=>{
-
-  const row=element("div","adminitem");
-
-  row.append(element("span","",item.title));
-
-  const buttons=element("div","actions");
-
-  const edit=element("button","btn","Düzenle");
-
-  edit.type="button";
-
-  edit.addEventListener("click",()=>fillForm(item.id));
-
-  const del=element("button","btn red","Sil");
-
-  del.type="button";
-
-  del.addEventListener("click",()=>{
-
-   if(!confirm("Bu kampanya silinsin mi?"))return;
-
-   items=items.filter(x=>x.id!==item.id);
-
-   saveItems();render();
-
+function setAdminStatus(id, msg) { $(id).textContent = msg || ""; }
+function clearCampaignForm() {
+  $("campaignForm").reset(); $("campaignId").value = ""; $("campaignSubmit").textContent = "Kampanyayı kaydet";
+}
+function renderAdminLists() {
+  $("adminCampaignList").innerHTML = campaigns.map(c => `<div class="admin-row"><div><strong>${escapeHtml(c.title)}</strong><small>${escapeHtml(c.category)} · ${c.active ? "Aktif" : "Pasif"}</small></div><div class="form-actions"><button class="btn" data-edit="${c.id}">Düzenle</button><button class="danger" data-delete-campaign="${c.id}">Sil</button></div></div>`).join("") || `<div class="disclaimer">Kampanya bulunamadı.</div>`;
+  $("adminAnnouncementList").innerHTML = announcements.map(a => `<div class="admin-row"><div><strong>${escapeHtml(a.message.slice(0,70))}${a.message.length>70?"…":""}</strong><small>${a.active ? "Aktif" : "Pasif"}</small></div><button class="danger" data-delete-announcement="${a.id}">Sil</button></div>`).join("") || `<div class="disclaimer">Duyuru bulunamadı.</div>`;
+}
+async function refreshAdminData() {
+  const [cRes, aRes] = await Promise.all([
+    supabaseClient.from("campaigns").select("*").order("created_at", {ascending:false}),
+    supabaseClient.from("site_announcements").select("*").order("updated_at", {ascending:false})
+  ]);
+  if (cRes.error || aRes.error) {
+    setAdminStatus("campaignStatus", "Veriler okunamadı. Yönetici hesabının admin_users tablosunda kayıtlı olduğunu ve RLS politikalarını kontrol edin.");
+    console.error(cRes.error || aRes.error); return;
+  }
+  campaigns = cRes.data || []; announcements = aRes.data || [];
+  renderCampaigns(); renderAnnouncements(); renderAdminLists();
+}
+function setSignedInUI(session) {
+  const signedIn = !!session;
+  $("loginBox").classList.toggle("hidden", signedIn);
+  $("adminWorkspace").classList.toggle("hidden", !signedIn);
+  if (signedIn) $("adminUserLabel").textContent = session.user.email || "Yönetici";
+}
+async function initAuth() {
+  if (!supabaseClient) return;
+  const {data:{session}} = await supabaseClient.auth.getSession();
+  setSignedInUI(session);
+  if (session) await refreshAdminData();
+  supabaseClient.auth.onAuthStateChange((_event, nextSession) => {
+    setSignedInUI(nextSession);
+    if (nextSession) setTimeout(refreshAdminData, 0);
   });
-
-  buttons.append(edit,del);row.append(buttons);list.append(row);
-
- });
-
 }
-
-function clearForm(){
-
- $("bonusForm").reset();$("editId").value="";
-
- $("saveBtn").textContent="Kampanya Ekle";
-
+$("filters").addEventListener("click", e => {
+  const btn = e.target.closest("[data-filter]");
+  if (!btn) return;
+  currentFilter = btn.dataset.filter;
+  document.querySelectorAll(".filter").forEach(b => b.classList.toggle("active", b === btn));
+  renderCampaigns();
+});
+function openAdmin() {
+  $("adminSection").classList.add("show");
+  $("adminSection").scrollIntoView({behavior:"smooth"});
 }
-
-function fillForm(id){
-
- const item=items.find(x=>x.id===id);if(!item)return;
-
- $("editId").value=item.id;$("title").value=item.title;
-
- $("category").value=item.category;$("description").value=item.description;
-
- $("url").value=item.url||"";
-
- $("saveBtn").textContent="Değişiklikleri Kaydet";
-
- $("title").focus();
-
-}
-
-$("bonusForm").addEventListener("submit",e=>{
-
- e.preventDefault();
-
- const raw=$("url").value.trim();
-
- if(raw && !safeUrl(raw)){alert("Lütfen geçerli bir HTTPS bağlantısı gir.");return;}
-
- const id=$("editId").value;
-
- const item={id:id||("c"+Date.now()),
-
- title:$("title").value.trim(),category:$("category").value,
-
- description:$("description").value.trim(),url:raw};
-
- if(id)items=items.map(x=>x.id===id?item:x);
-
- else items.unshift(item);
-
- saveItems();clearForm();render();
-
- alert("Kampanya bu tarayıcıya kaydedildi.");
-
+$("showAdminBtn").addEventListener("click", openAdmin);
+$("footerAdminLink").addEventListener("click", openAdmin);
+$("loginForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!supabaseClient) return setAdminStatus("loginStatus", "Önce Supabase URL ve publishable key alanlarını doldurun.");
+  setAdminStatus("loginStatus", "Giriş yapılıyor…");
+  const {error} = await supabaseClient.auth.signInWithPassword({email:$("adminEmail").value.trim(),password:$("adminPassword").value});
+  setAdminStatus("loginStatus", error ? "Giriş başarısız. E-posta/parolayı ve Supabase Auth kullanıcısını kontrol edin." : "Giriş başarılı.");
 });
-
-$("cancelEdit").addEventListener("click",clearForm);
-
-$("openAdmin").addEventListener("click",()=>{
-
- $("overlay").classList.add("show");
-
- renderAdmin();
-
+$("logoutBtn").addEventListener("click", async () => {
+  if (supabaseClient) await supabaseClient.auth.signOut();
+  clearCampaignForm();
 });
-
-$("closeAdmin").addEventListener("click",()=>$("overlay").classList.remove("show"));
-
-$("overlay").addEventListener("click",e=>{
-
- if(e.target===$("overlay"))$("overlay").classList.remove("show");
-
+$("campaignForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!supabaseClient) return setAdminStatus("campaignStatus","Supabase bağlantısı ayarlı değil.");
+  const id = $("campaignId").value;
+  const payload = {title:$("campaignTitle").value.trim(),category:$("campaignCategory").value,description:$("campaignDescription").value.trim(),target_url:safeUrl($("campaignUrl").value.trim()),active:true};
+  if (payload.target_url === "#") return setAdminStatus("campaignStatus","Lütfen https:// ile başlayan geçerli bir bağlantı girin.");
+  setAdminStatus("campaignStatus","Kaydediliyor…");
+  const result = id ? await supabaseClient.from("campaigns").update(payload).eq("id",id) : await supabaseClient.from("campaigns").insert(payload);
+  if (result.error) {
+    setAdminStatus("campaignStatus","Kaydedilemedi. Yönetici yetkisi/RLS politikaları kontrol edilmeli.");
+    console.error(result.error); return;
+  }
+  setAdminStatus("campaignStatus","Kampanya kaydedildi.");
+  clearCampaignForm(); await refreshAdminData();
 });
-
-$("editAnnouncement").addEventListener("click",()=>{
-
- const old=localStorage.getItem(ANN)||"Yeni duyurular burada yayınlanacaktır.";
-
- const value=prompt("Duyuru metni:",old);
-
- if(value===null)return;
-
- localStorage.setItem(ANN,value);
-
- $("announcement").textContent=value;
-
+$("cancelEditBtn").addEventListener("click", clearCampaignForm);
+$("adminCampaignList").addEventListener("click", async e => {
+  const edit = e.target.closest("[data-edit]");
+  const del = e.target.closest("[data-delete-campaign]");
+  if (edit) {
+    const c = campaigns.find(x => String(x.id) === edit.dataset.edit); if (!c) return;
+    $("campaignId").value=c.id; $("campaignTitle").value=c.title; $("campaignCategory").value=c.category; $("campaignDescription").value=c.description||""; $("campaignUrl").value=c.target_url; $("campaignSubmit").textContent="Değişiklikleri kaydet"; $("campaignForm").scrollIntoView({behavior:"smooth",block:"center"});
+  }
+  if (del && confirm("Bu kampanya silinsin mi?")) {
+    const {error} = await supabaseClient.from("campaigns").delete().eq("id",del.dataset.deleteCampaign);
+    setAdminStatus("campaignStatus",error ? "Silinemedi. Yönetici yetkisini kontrol edin." : "Kampanya silindi.");
+    await refreshAdminData();
+  }
 });
-
-$("resetData").addEventListener("click",()=>{
-
- if(!confirm("Demo kampanyaları ilk hâline dönsün mü?"))return;
-
- items=initial.slice();saveItems();render();
-
+$("announcementForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!supabaseClient) return setAdminStatus("announcementStatus","Supabase bağlantısı ayarlı değil.");
+  const message = $("announcementInput").value.trim();
+  setAdminStatus("announcementStatus","Yayınlanıyor…");
+  const deactivate = await supabaseClient.from("site_announcements").update({active:false,updated_at:new Date().toISOString()}).eq("active",true);
+  if (deactivate.error) { setAdminStatus("announcementStatus","Duyuru güncellenemedi. Yönetici yetkisini kontrol edin."); console.error(deactivate.error); return; }
+  const {error} = await supabaseClient.from("site_announcements").insert({message,active:true,updated_at:new Date().toISOString()});
+  if (error) { setAdminStatus("announcementStatus","Duyuru yayınlanamadı. Yönetici yetkisini kontrol edin."); console.error(error); return; }
+  $("announcementForm").reset(); setAdminStatus("announcementStatus","Duyuru yayınlandı."); await refreshAdminData();
 });
-
-$("announcement").textContent=localStorage.getItem(ANN)||
-
- "Yeni duyurular burada yayınlanacaktır.";
-
-render();
-
+$("adminAnnouncementList").addEventListener("click", async e => {
+  const del = e.target.closest("[data-delete-announcement]"); if (!del || !confirm("Bu duyuru silinsin mi?")) return;
+  const {error} = await supabaseClient.from("site_announcements").delete().eq("id",del.dataset.deleteAnnouncement);
+  setAdminStatus("announcementStatus",error ? "Silinemedi. Yönetici yetkisini kontrol edin." : "Duyuru silindi."); await refreshAdminData();
+});
+loadPublicData(); initAuth();
 </script>
-
 </body>
-
 </html>
