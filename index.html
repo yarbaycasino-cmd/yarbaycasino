@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>YARBAY CASINO | Bonus Merkezi</title>
+
+<style>
+
+:root {
+
+  --navy:#071326; --panel:#102443; --gold:#f4c85b;
+
+  --blue:#1976ff; --red:#e63848; --white:#f8faff;
+
+  --muted:#b8c5da; --line:#294469;
+
+}
+
+*{box-sizing:border-box}
+
+body{margin:0;background:var(--navy);color:var(--white);
+
+font-family:Arial,sans-serif}
+
+button,input,textarea,select{font:inherit}
+
+button,a{cursor:pointer}
+
+a{color:inherit;text-decoration:none}
+
+header{background:#09172c;border-bottom:1px solid var(--line);
+
+padding:16px 5%;display:flex;align-items:center;
+
+justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+.logo{font-size:23px;font-weight:900}
+
+.logo span{color:var(--gold)}
+
+nav{display:flex;gap:17px;align-items:center;flex-wrap:wrap}
+
+nav a{font-size:14px;color:#dce6f6}
+
+.btn{border:0;border-radius:9px;padding:12px 16px;
+
+background:linear-gradient(110deg,var(--blue),#6449db);
+
+color:white;font-weight:bold;display:inline-block}
+
+.btn.gold{background:linear-gradient(110deg,#ffe69a,#d49b26);
+
+color:#17213a}
+
+.btn.red{background:var(--red)}
+
+.wrap{width:min(1120px,92%);margin:auto}
+
+.hero{margin:28px auto 35px;padding:48px 25px;text-align:center;
+
+border:1px solid #725e36;border-radius:20px;
+
+background:radial-gradient(ellipse at top,#244a7d,#10213c 52%,#10172b);
+
+position:relative;overflow:hidden}
+
+.kicker{color:var(--gold);font-weight:bold;letter-spacing:3px}
+
+h1{font-size:clamp(34px,6vw,59px);margin:15px 0}
+
+.hero h1 span{color:var(--gold)}
+
+.hero p{color:#d1dcee;line-height:1.8}
+
+.pills{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;
+
+margin:22px 0}
+
+.pill{border:1px solid #526b8d;padding:8px 12px;
+
+border-radius:25px;font-size:12px;background:#122642}
+
+.sectionhead{display:flex;align-items:center;justify-content:space-between;
+
+gap:12px;flex-wrap:wrap;margin:28px 0 17px}
+
+.sectionhead h2{margin:0}
+
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+
+.card{background:linear-gradient(145deg,#142c4e,#0d1b31);
+
+border:1px solid var(--line);border-radius:15px;overflow:hidden}
+
+.cardtop{height:8px;background:linear-gradient(90deg,var(--gold),var(--blue),var(--red))}
+
+.cardbody{padding:21px}
+
+.tag{display:inline-block;border-radius:5px;padding:6px 9px;
+
+background:#213b60;color:var(--gold);font-size:11px;font-weight:bold}
+
+.card h3{font-size:21px;margin:15px 0 9px}
+
+.card p{color:var(--muted);line-height:1.65;min-height:44px}
+
+.card .btn{width:100%;text-align:center;margin-top:9px}
+
+.empty{color:var(--muted);padding:30px;border:1px dashed var(--line);
+
+border-radius:12px;text-align:center}
+
+.notice{margin:35px 0;padding:25px;border:1px solid var(--line);
+
+border-radius:15px;background:#10213a}
+
+.notice p{color:var(--muted);line-height:1.7}
+
+footer{border-top:1px solid var(--line);padding:27px 5%;
+
+text-align:center;color:var(--muted);font-size:12px;line-height:1.8}
+
+.overlay{position:fixed;inset:0;background:#020713dd;z-index:10;
+
+display:none;align-items:flex-start;justify-content:center;
+
+overflow:auto;padding:20px}
+
+.overlay.show{display:flex}
+
+.admin{background:#0e1d34;border:1px solid #496387;border-radius:16px;
+
+width:min(760px,100%);padding:23px;margin:auto}
+
+.adminhead{display:flex;justify-content:space-between;gap:10px;
+
+align-items:center;flex-wrap:wrap}
+
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+
+.field{display:flex;flex-direction:column;gap:7px}
+
+.field.full{grid-column:1/-1}
+
+.field label{font-size:13px;color:#d4def0}
+
+.field input,.field textarea,.field select{width:100%;padding:12px;
+
+background:#081529;color:white;border:1px solid #405779;border-radius:8px}
+
+.field textarea{min-height:80px;resize:vertical}
+
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+
+.adminlist{margin-top:22px;border-top:1px solid var(--line);padding-top:12px}
+
+.adminitem{display:flex;justify-content:space-between;align-items:center;
+
+gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:12px 0}
+
+.small{font-size:12px;color:var(--muted);line-height:1.6}
+
+@media(max-width:760px){.cards{grid-template-columns:1fr}
+
+.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}
+
+.hero{padding:35px 17px}nav{gap:10px}}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+  <a class="logo" href="#">YARBAY <span>CASINO</span></a>
+
+  <nav>
+
+    <a href="#anasayfa">Ana Sayfa</a>
+
+    <a href="#bonuslar">Bonuslar</a>
+
+    <a href="#duyurular">Duyurular</a>
+
+    <button class="btn gold" id="openAdmin">Yönetim Paneli</button>
+
+  </nav>
+
+</header>
+
+<main class="wrap" id="anasayfa">
+
+  <section class="hero">
+
+    <div class="kicker">★ YARBAY CASINO ★</div>
+
+    <h1>Bonus <span>Merkezi</span></h1>
+
+    <p>Kampanyaları keşfet, duyuruları takip et.<br>
+
+    Güncel teklifler ve katılım koşulları için sponsor bilgilerini incele.</p>
+
+    <div class="pills">
+
+      <span class="pill">✦ Öne Çıkanlar</span>
+
+      <span class="pill">◆ Sponsorlar</span>
+
+      <span class="pill">★ Duyurular</span>
+
+    </div>
+
+    <a class="btn gold" href="#bonuslar">Kampanyaları İncele ↓</a>
+
+  </section>
+
+  <section id="bonuslar">
+
+    <div class="sectionhead">
+
+      <h2>✦ Bonus ve Kampanyalar</h2>
+
+      <span class="tag" id="count">0 KAMPANYA</span>
+
+    </div>
+
+    <div class="cards" id="cards"></div>
+
+  </section>
+
+  <section class="notice" id="duyurular">
+
+    <h2 style="color:var(--gold)">Yarbay Casino Duyuruları</h2>
+
+    <p id="announcement">Yeni duyurular burada yayınlanacaktır.</p>
+
+    <a class="btn red" id="telegram" href="https://t.me/" target="_blank"
+
+       rel="noopener">Telegram Kanalı</a>
+
+  </section>
+
+</main>
+
+<footer>
+
+  © 2026 YARBAY CASINO · Tüm hakları saklıdır.<br>
+
+  18+ · Sorumlu davranın. Kampanya koşullarını kontrol edin.
+
+</footer>
+
+<div class="overlay" id="overlay">
+
+  <section class="admin">
+
+    <div class="adminhead">
+
+      <div>
+
+        <div class="kicker">YARBAY CASINO</div>
+
+        <h2 style="margin:8px 0">Yönetim Paneli</h2>
+
+      </div>
+
+      <button class="btn red" id="closeAdmin">Kapat ✕</button>
+
+    </div>
+
+    <p class="small">Demo yönetim paneli: kayıtlar bu tarayıcıda saklanır.
+
+    Henüz güvenli, sunucu bağlantılı canlı yönetim sistemi değildir.</p>
+
+    <form id="bonusForm">
+
+      <input type="hidden" id="editId">
+
+      <div class="formgrid">
+
+        <div class="field">
+
+          <label for="title">Kampanya başlığı</label>
+
+          <input id="title" maxlength="80" required placeholder="Sponsor kampanyası">
+
+        </div>
+
+        <div class="field">
+
+          <label for="category">Kategori</label>
+
+          <select id="category">
+
+            <option>Sponsor</option><option>Yeni Üye</option>
+
+            <option>Etkinlik</option><option>Duyuru</option>
+
+          </select>
+
+        </div>
+
+        <div class="field full">
+
+          <label for="description">Açıklama</label>
+
+          <textarea id="description" maxlength="300" required
+
+          placeholder="Kampanya ve koşulları hakkında bilgi"></textarea>
+
+        </div>
+
+        <div class="field full">
+
+          <label for="url">Hedef bağlantısı (https://)</label>
+
+          <input id="url" type="url" placeholder="https://example.com">
+
+        </div>
+
+      </div>
+
+      <div class="actions">
+
+        <button class="btn gold" type="submit" id="saveBtn">Kampanya Ekle</button>
+
+        <button class="btn" type="button" id="cancelEdit">Formu Temizle</button>
+
+      </div>
+
+    </form>
+
+    <div class="adminlist">
+
+      <h3>Mevcut kampanyalar</h3>
+
+      <div id="adminList"></div>
+
+      <div class="actions">
+
+        <button class="btn" id="editAnnouncement">Duyuruyu Düzenle</button>
+
+        <button class="btn red" id="resetData">Demo Verilerini Sıfırla</button>
+
+      </div>
+
+      <p class="small">Bu sürümde panel güvenlik doğrulaması yoktur.
+
+      Gerçek kullanıma açmadan önce yönetici girişi ve sunucu yetkilendirmesi eklenmelidir.</p>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+
+const KEY = "yarbaycasino_campaigns_v1";
+
+const ANN = "yarbaycasino_announcement_v1";
+
+const TG = "yarbaycasino_telegram_v1";
+
+const initial = [
+
+ {id:"demo1",title:"Sponsor Kampanyası",category:"Sponsor",
+
+ description:"Kampanya detayları ve geçerli koşullar için sponsor sayfasını inceleyin.",
+
+ url:"https://example.com"},
+
+ {id:"demo2",title:"Yeni Üye Fırsatları",category:"Yeni Üye",
+
+ description:"Katılım koşullarını ve güncel kampanya bilgilerini kontrol edin.",
+
+ url:"https://example.com"},
+
+ {id:"demo3",title:"Güncel Duyurular",category:"Duyuru",
+
+ description:"Etkinlikler ve bilgilendirmeler için duyuru kanalını takip edin.",
+
+ url:"https://t.me/"}
+
+];
+
+const $ = id => document.getElementById(id);
+
+let items = loadItems();
+
+function loadItems(){
+
+ try {
+
+  const value = JSON.parse(localStorage.getItem(KEY));
+
+  return Array.isArray(value) ? value : initial.slice();
+
+ } catch { return initial.slice(); }
+
+}
+
+function saveItems(){
+
+ localStorage.setItem(KEY,JSON.stringify(items));
+
+}
+
+function safeUrl(value){
+
+ try {
+
+  const u = new URL(value);
+
+  return u.protocol === "https:" ? u.href : "";
+
+ } catch { return ""; }
+
+}
+
+function element(tag,cls,text){
+
+ const e=document.createElement(tag);
+
+ if(cls)e.className=cls;
+
+ if(text!==undefined)e.textContent=text;
+
+ return e;
+
+}
+
+function render(){
+
+ const cards=$("cards");
+
+ cards.replaceChildren();
+
+ $("count").textContent=items.length+" KAMPANYA";
+
+ if(!items.length){
+
+  cards.append(element("div","empty","Henüz kampanya eklenmedi."));
+
+  return;
+
+ }
+
+ items.forEach(item=>{
+
+  const card=element("article","card");
+
+  card.append(element("div","cardtop"));
+
+  const body=element("div","cardbody");
+
+  body.append(element("span","tag",item.category));
+
+  body.append(element("h3","",item.title));
+
+  body.append(element("p","",item.description));
+
+  const url=safeUrl(item.url||"");
+
+  if(url){
+
+   const link=element("a","btn gold","Detayları Gör");
+
+   link.href=url;link.target="_blank";link.rel="noopener";
+
+   body.append(link);
+
+  }else{
+
+   body.append(element("p","small","Bağlantı henüz eklenmedi."));
+
+  }
+
+  card.append(body);cards.append(card);
+
+ });
+
+ renderAdmin();
+
+}
+
+function renderAdmin(){
+
+ const list=$("adminList");list.replaceChildren();
+
+ if(!items.length){list.append(element("p","small","Kampanya yok."));return;}
+
+ items.forEach(item=>{
+
+  const row=element("div","adminitem");
+
+  row.append(element("span","",item.title));
+
+  const buttons=element("div","actions");
+
+  const edit=element("button","btn","Düzenle");
+
+  edit.type="button";
+
+  edit.addEventListener("click",()=>fillForm(item.id));
+
+  const del=element("button","btn red","Sil");
+
+  del.type="button";
+
+  del.addEventListener("click",()=>{
+
+   if(!confirm("Bu kampanya silinsin mi?"))return;
+
+   items=items.filter(x=>x.id!==item.id);
+
+   saveItems();render();
+
+  });
+
+  buttons.append(edit,del);row.append(buttons);list.append(row);
+
+ });
+
+}
+
+function clearForm(){
+
+ $("bonusForm").reset();$("editId").value="";
+
+ $("saveBtn").textContent="Kampanya Ekle";
+
+}
+
+function fillForm(id){
+
+ const item=items.find(x=>x.id===id);if(!item)return;
+
+ $("editId").value=item.id;$("title").value=item.title;
+
+ $("category").value=item.category;$("description").value=item.description;
+
+ $("url").value=item.url||"";
+
+ $("saveBtn").textContent="Değişiklikleri Kaydet";
+
+ $("title").focus();
+
+}
+
+$("bonusForm").addEventListener("submit",e=>{
+
+ e.preventDefault();
+
+ const raw=$("url").value.trim();
+
+ if(raw && !safeUrl(raw)){alert("Lütfen geçerli bir HTTPS bağlantısı gir.");return;}
+
+ const id=$("editId").value;
+
+ const item={id:id||("c"+Date.now()),
+
+ title:$("title").value.trim(),category:$("category").value,
+
+ description:$("description").value.trim(),url:raw};
+
+ if(id)items=items.map(x=>x.id===id?item:x);
+
+ else items.unshift(item);
+
+ saveItems();clearForm();render();
+
+ alert("Kampanya bu tarayıcıya kaydedildi.");
+
+});
+
+$("cancelEdit").addEventListener("click",clearForm);
+
+$("openAdmin").addEventListener("click",()=>{
+
+ $("overlay").classList.add("show");
+
+ renderAdmin();
+
+});
+
+$("closeAdmin").addEventListener("click",()=>$("overlay").classList.remove("show"));
+
+$("overlay").addEventListener("click",e=>{
+
+ if(e.target===$("overlay"))$("overlay").classList.remove("show");
+
+});
+
+$("editAnnouncement").addEventListener("click",()=>{
+
+ const old=localStorage.getItem(ANN)||"Yeni duyurular burada yayınlanacaktır.";
+
+ const value=prompt("Duyuru metni:",old);
+
+ if(value===null)return;
+
+ localStorage.setItem(ANN,value);
+
+ $("announcement").textContent=value;
+
+});
+
+$("resetData").addEventListener("click",()=>{
+
+ if(!confirm("Demo kampanyaları ilk hâline dönsün mü?"))return;
+
+ items=initial.slice();saveItems();render();
+
+});
+
+$("announcement").textContent=localStorage.getItem(ANN)||
+
+ "Yeni duyurular burada yayınlanacaktır.";
+
+render();
+
+</script>
+
+</body>
+
+</html>
