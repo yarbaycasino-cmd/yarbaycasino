@@ -163,8 +163,13 @@ function openAdmin() {
   $("adminSection").classList.add("show");
   $("adminSection").scrollIntoView({behavior:"smooth"});
 }
-$("showAdminBtn").addEventListener("click", openAdmin);
-$("footerAdminLink").addEventListener("click", openAdmin);
+document.getElementById("showAdminBtn")?.addEventListener("click", function(e) {
+  e.preventDefault();
+  openAdmin();
+});document.getElementById("footerAdminLink")?.addEventListener("click", function(e) {
+  e.preventDefault();
+  openAdmin();
+});
 $("loginForm").addEventListener("submit", async e => {
   e.preventDefault();
   if (!supabaseClient) return setAdminStatus("loginStatus", "Önce Supabase URL ve publishable key alanlarını doldurun.");
