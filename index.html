@@ -50,10 +50,10 @@ a{color:inherit}.wrap{width:min(1180px,92%);margin:auto}.topline{background:#061
   2) SUPABASE_PUBLISHABLE_KEY alanına sb_publishable_... anahtarını koy.
   Never place a service_role or secret key in this file.
 */
-const SUPABASE_URL = "https://tcccuojsdybqyynweoea.supabase.co/";
+const SUPABASE_URL = "https://tcccuojsdybqyynweoea.supabase.co/rest/v1/";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Lmaf--NXR1XmJpBBE_r8lw_7DoNbUtF";
-const configured = SUPABASE_URL.startsWith("https://tcccuojsdybqyynweoea.supabase.co/://") &&
-  !SUPABASE_URL.includes("https://tcccuojsdybqyynweoea.supabase.co/") &&
+const configured = SUPABASE_URL.startsWith("https://tcccuojsdybqyynweoea.supabase.co/rest/v1/://") &&
+  !SUPABASE_URL.includes("https://tcccuojsdybqyynweoea.supabase.co/rest/v1/") &&
   SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_Lmaf--NXR1XmJpBBE_r8lw_7DoNbUtF") &&
   !SUPABASE_PUBLISHABLE_KEY.includes("sb_publishable_Lmaf--NXR1XmJpBBE_r8lw_7DoNbUtF");
 const supabaseClient = configured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY) : null;
