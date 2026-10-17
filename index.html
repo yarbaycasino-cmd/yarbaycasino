@@ -52,8 +52,8 @@ a{color:inherit}.wrap{width:min(1180px,92%);margin:auto}.topline{background:#061
 */
 const SUPABASE_URL = "https://tcccuojsdybqyynweoea.supabase.co/";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_Lmaf--NXR1XmJpBBE_r8lw_7DoNbUtF";
-const configured = SUPABASE_URL.startsWith("https://") &&
-  !SUPABASE_URL.includes("PASTE_") &&
+const configured = SUPABASE_URL.startsWith("https://tcccuojsdybqyynweoea.supabase.co/://") &&
+  !SUPABASE_URL.includes("https://tcccuojsdybqyynweoea.supabase.co/") &&
   SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_Lmaf--NXR1XmJpBBE_r8lw_7DoNbUtF") &&
   !SUPABASE_PUBLISHABLE_KEY.includes("sb_publishable_Lmaf--NXR1XmJpBBE_r8lw_7DoNbUtF");
 const supabaseClient = configured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY) : null;
